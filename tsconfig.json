@@ -12,8 +12,8 @@
     "rootDir": "./src",
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2019",
-    "lib": ["es2020"],
+    "target": "es2017",
+    "lib": ["es2017"],
     "baseUrl": ""
   }
 }

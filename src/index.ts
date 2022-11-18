@@ -34,7 +34,7 @@ function defaultShouldIgnorePath(path: string): boolean {
  * vendored or runtime-injected (aka third-party) sources. These are consumed by
  * Chrome DevTools to automatically ignore-list sources.
  */
-export class DevToolsIgnorePlugin {
+class DevToolsIgnorePlugin {
   options: ValidatedOptions;
 
   constructor(options: PluginOptions = {}) {
@@ -85,3 +85,7 @@ export class DevToolsIgnorePlugin {
     });
   }
 }
+
+// @ts-ignore: a hack to make it work for both CommonJS and ES modules
+DevToolsIgnorePlugin.default = DevToolsIgnorePlugin;
+export = DevToolsIgnorePlugin;
