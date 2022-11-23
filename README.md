@@ -1,3 +1,7 @@
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+![npm](https://img.shields.io/npm/dw/devtools-ignore-webpack-plugin.svg)
+
 # DevTools Ignore Webpack Plugin
 
 A Webpack plugin to ignore-listing code in Chrome devtools.
