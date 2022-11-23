@@ -49,3 +49,8 @@ function defaultShouldIgnorePath(path) {
 }
 ```
 
+[npm]: https://img.shields.io/npm/v/devtools-ignore-webpack-plugin.svg
+[npm-url]: https://npmjs.com/package/devtools-ignore-webpack-plugin
+
+[node]: https://img.shields.io/node/v/devtools-ignore-webpack-plugin.svg
+[node-url]: https://nodejs.org
