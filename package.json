@@ -1,6 +1,8 @@
 {
-  "version": "0.0.5",
+  "version": "0.1.0",
   "name": "devtools-ignore-webpack-plugin",
+  "repository": "https://github.com/mondaychen/devtools-ignore-webpack-plugin.git",
+  "homepage": "https://github.com/mondaychen/devtools-ignore-webpack-plugin",
   "description": "A Webpack plugin to ignore sourcemap in Chrome devtools",
   "keywords": [
     "webpack",
