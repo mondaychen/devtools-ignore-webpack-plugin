@@ -8,6 +8,8 @@ A Webpack plugin to ignore-listing code in Chrome devtools.
 To see how ignore-listing helps your development experience, check out [this offical demo](https://developer.chrome.com/blog/devtools-better-angular-debugging/).
 This plugin is based on the plugin implemented in Angular CLI project.
 
+__Note:__ This plugin is only for Webpack 5.
+
 ## Installation
 
 ```bash
@@ -15,6 +17,10 @@ npm install --save-dev devtools-ignore-webpack-plugin
 ```
 
 ## Usage
+
+First, follow [webpack's guide](https://webpack.js.org/configuration/devtool/) to enable source maps in your project. **Please note that the "inline" source map options are not supported yet.**
+
+Then, add the plugin to your webpack config:
 
 ```js
 const DevToolsIgnorePlugin = require('devtools-ignore-webpack-plugin')
