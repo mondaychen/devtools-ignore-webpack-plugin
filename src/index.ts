@@ -26,7 +26,7 @@ interface ValidatedOptions extends PluginOptions {
 }
 
 function defaultShouldIgnorePath(path: string): boolean {
-  return path.includes("/node_modules/") || path.startsWith("webpack/");
+  return path.includes("/node_modules/") || path.includes("/webpack/");
 }
 
 /**

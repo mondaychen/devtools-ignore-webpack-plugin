@@ -37,7 +37,7 @@ new DevToolsIgnorePlugin({
     if (path.includes('my-lib')) {
       return false;
     }
-    return path.includes("/node_modules/") || path.startsWith("webpack/");
+    return path.includes("/node_modules/") || path.includes("/webpack/");
   }
 })
 ```
@@ -45,7 +45,7 @@ new DevToolsIgnorePlugin({
 When not specified, the default function is:
 ```js
 function defaultShouldIgnorePath(path) {
-  return path.includes("/node_modules/") || path.startsWith("webpack/");
+  return path.includes("/node_modules/") || path.includes("/webpack/");
 }
 ```
 
