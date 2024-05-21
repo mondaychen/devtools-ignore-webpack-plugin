@@ -19,14 +19,20 @@ interface SourceMap {
 
 interface PluginOptions {
   shouldIgnorePath?: (path: string) => boolean;
+  potentialSourceMapExtension?: (name: string) => boolean;
 }
 
 interface ValidatedOptions extends PluginOptions {
   shouldIgnorePath: Required<PluginOptions>["shouldIgnorePath"];
+  potentialSourceMapExtension: Required<PluginOptions>["potentialSourceMapExtension"];
 }
 
 function defaultShouldIgnorePath(path: string): boolean {
   return path.includes("/node_modules/") || path.includes("/webpack/");
+}
+
+function defaultPotentialSourceMapExtension(name: string): boolean {
+  return name.endsWith(".map");
 }
 
 /**
@@ -40,6 +46,9 @@ class DevToolsIgnorePlugin {
   constructor(options: PluginOptions = {}) {
     this.options = {
       shouldIgnorePath: options.shouldIgnorePath ?? defaultShouldIgnorePath,
+      potentialSourceMapExtension:
+        options.potentialSourceMapExtension ??
+        defaultPotentialSourceMapExtension,
     };
   }
 
@@ -58,7 +67,7 @@ class DevToolsIgnorePlugin {
             // Instead of using `asset.map()` to fetch the source maps from
             // SourceMapSource assets, process them directly as a RawSource.
             // This is because `.map()` is slow and can take several seconds.
-            if (!name.endsWith(".map")) {
+            if (!this.options.potentialSourceMapExtension(name)) {
               // Ignore non source map files.
               continue;
             }
