@@ -33,9 +33,9 @@ module.exports = {
 
 ## Options
 
-Currently, this plugin supports two options: `shouldIgnorePath` and `potentialSourceMapExtension`.
+Currently, this plugin supports two options: `shouldIgnorePath` and `isSourceMapAsset`.
 
-# shouldIgnorePath
+### shouldIgnorePath
 
 `shouldIgnorePath` is a function that checks whether a source file should be ignored. The function takes a single argument, which is the path of the file. It should return a boolean value.
 
@@ -58,15 +58,15 @@ function defaultShouldIgnorePath(path) {
 }
 ```
 
-# potentialSourceMapExtension
+### isSourceMapAsset
 
-`potentialSourceMapExtension` is a function that checks whether a map file is potentially a source map. The function takes a single argument, which is the name of the potential source map file. It should return a boolean value.
+`isSourceMapAsset` is a function that checks whether a map file is potentially a source map asset. The function takes a single argument, which is the name of the potential source map asset. It should return a boolean value.
 
 Note: This should rarely be needed. Known scenarios include only looking at `.js.map` in rare scenarios where you have other files that end in `.map`
 
 ```js
 new DevToolsIgnorePlugin({
-  potentialSourceMapExtension: function (name) {
+  isSourceMapAsset: function (name) {
     return name.endsWith(".js.map"); // if you have other files that end in .map
   },
 });
@@ -75,7 +75,7 @@ new DevToolsIgnorePlugin({
 When not specified, the default function is:
 
 ```js
-function defaultPotentialSourceMapExtension(name) {
+function defaultisSourceMapAsset(name) {
   return name.endsWith(".map");
 }
 ```
