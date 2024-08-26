@@ -7,8 +7,8 @@
 import { Compilation, Compiler } from "webpack";
 
 // Following the naming conventions from
-// https://sourcemaps.info/spec.html#h.ghqpj1ytqjbm
-const IGNORE_LIST = "x_google_ignoreList";
+// https://tc39.es/source-map/#source-map-format
+const IGNORE_LIST = "ignoreList";
 
 const PLUGIN_NAME = "devtools-ignore-plugin";
 
